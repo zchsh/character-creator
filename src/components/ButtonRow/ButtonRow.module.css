@@ -1,2 +1,26 @@
 .buttonRow {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 4px;
+  --scrollbar-foreground: #aaaaaa;
+  --scrollbar-background: #ffffff;
+}
+
+/* Scroll bar styles below */
+.buttonRow {
+  /* web standard - Firefox supports this */
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-foreground) transparent;
+}
+/* webkit prefixed - for Safari, Chrome, chromium-based browsers */
+.buttonRow::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.buttonRow::-webkit-scrollbar-track {
+  background: transparent;
+}
+.buttonRow::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-foreground);
+  border-radius: 6px;
 }

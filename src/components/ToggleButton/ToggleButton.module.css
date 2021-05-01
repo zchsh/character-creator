@@ -1,4 +1,10 @@
 .toggleButton {
+  /*
+    Fix an issue where the :activ state seems to result
+    in  a "color: activebuttontext" property from user
+    agent styles in Safari, which makes the text invisible
+  */
+  color: hsl(0deg, 0%, 0%);
   width: 50px;
   height: 50px;
   font-size: 1.25rem;
@@ -8,6 +14,9 @@
   outline-offset: 2px;
   border-radius: 1px;
   cursor: pointer;
+}
+
+.toggleButton:not(:last-child) {
   /*
     HACK: Margin on an outer bound like this is
     a little gross, but we haven't seen the tools
@@ -16,7 +25,7 @@
   margin-right: 4px;
 }
 
-.toggleButton[aria-pressed='true'] {
+.toggleButton[aria-pressed="true"] {
   background: hsl(0deg, 0%, 5%);
   color: white;
   border-width: 6px;

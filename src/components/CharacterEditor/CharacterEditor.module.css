@@ -1,13 +1,50 @@
 .characterEditor {
-  padding-top: 128px;
-  padding-bottom: 64px;
+  isolation: isolate;
 }
 
 .maxWidthWrapper {
 }
 
 .header {
-  padding-bottom: 64px;
+  position: relative;
+  z-index: 1;
+  margin-left: -32px;
+  margin-right: -32px;
+  padding: 64px 32px 240px 32px;
+  background: linear-gradient(
+    hsla(180deg, 25%, 92%, 1),
+    hsla(180deg, 25%, 92%, 0.9) 60%,
+    hsla(180deg, 25%, 92%, 0)
+  );
+}
+
+.header:after {
+  content: "↓";
+  color: white;
+  font-family: monospace;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 44px;
+  display: block;
+  position: absolute;
+  bottom: 80px;
+  width: 48px;
+  height: 48px;
+  background: hsla(0deg, 0%, 5%);
+}
+
+@media (min-width: 768px) {
+  .header {
+    background: none;
+    margin: 0;
+    padding: 128px 0px 64px 0px;
+    width: 60%;
+    position: static;
+  }
+
+  .header:after {
+    display: none;
+  }
 }
 
 .title {
@@ -24,7 +61,80 @@
 }
 
 .characterWrapper {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  width: 90vw;
+  height: 85vh;
+  margin: auto;
+  min-height: 500px;
+}
+
+@media (min-width: 768px) {
+  .characterWrapper {
+    position: fixed;
+    top: 128px;
+    bottom: auto;
+    right: auto;
+    margin: 0;
+    left: calc(50% + min(((100vw - 1024px) / 4), 0px));
+    width: 40%;
+  }
 }
 
 .controlColumn {
+  --scrollbar-foreground: hsl(180deg, 25%, 92%);
+  --scrollbar-background: hsl(0deg, 0%, 5%);
+  --scrollbar-padding: 16px;
+  position: relative;
+  z-index: 1;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-left: -32px;
+  margin-right: -32px;
+  margin-bottom: 120vh;
+  padding: 0 32px 16px 32px;
+  overflow-x: auto;
+}
+
+.controlColumn > * {
+  margin-right: 32px;
+}
+
+.controlColumn:after {
+  /* Hacky fix so that margin of last item
+  works as expected */
+  content: "\200B";
+  flex-shrink: 0;
+  display: inline-block;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  background: red;
+  opacity: 0.5;
+}
+
+@media (min-width: 768px) {
+  .controlColumn {
+    width: 50%;
+    min-width: 400px;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0 0 64px 0;
+    overflow: visible;
+  }
+
+  .controlColumn:after {
+    display: none;
+  }
+
+  .controlColumn > * {
+    margin-right: 0;
+    margin-bottom: 32px;
+  }
 }

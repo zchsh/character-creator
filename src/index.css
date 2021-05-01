@@ -44,3 +44,33 @@ body:before {
   padding: 0;
   border: 0;
 }
+
+/*
+  A utility class to style scroll bars in a 
+  somewhat cross-browser friendly way
+*/
+:root {
+  /* Can be overridden using a CSS custom property
+  on elements that use this class */
+  --scrollbar-foreground: hsl(0deg, 0%, 70%);
+  --scrollbar-background: transparent;
+  --scrollbar-padding: 0px;
+}
+.styled-scroll {
+  /* web standard - Firefox supports this */
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-foreground) var(--scrollbar-background);
+}
+/* webkit prefixed - for Safari, Chrome, chromium-based browsers */
+.styled-scroll::-webkit-scrollbar {
+  width: calc(6px + var(--scrollbar-padding));
+  height: calc(6px + var(--scrollbar-padding));
+}
+.styled-scroll::-webkit-scrollbar-track {
+  background: var(--scrollbar-background);
+}
+.styled-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-foreground);
+  border: calc(var(--scrollbar-padding) / 2) solid var(--scrollbar-background);
+  border-radius: calc(var(--scrollbar-padding) + 6px);
+}

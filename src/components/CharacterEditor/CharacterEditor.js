@@ -33,7 +33,7 @@ function App() {
             What sort of adventure will you embark&nbsp;on?{" "}
           </p>
         </header>
-        <div className={styles.controlColumn}>
+        <div className={`${styles.controlColumn} styled-scroll`}>
           <ControlPane
             title="Bodies"
             options={bodyOptions}

@@ -4,6 +4,9 @@
   padding-top: 18px;
   background-color: white;
   border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
 }
 
 .title {

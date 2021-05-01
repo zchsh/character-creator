@@ -120,9 +120,6 @@
 
 @media (min-width: 768px) {
   .controlColumn {
-    --scrollbar-foreground: inherit;
-    --scrollbar-background: inherit;
-    --scrollbar-padding: inherit;
     width: 50%;
     min-width: 400px;
     height: auto;

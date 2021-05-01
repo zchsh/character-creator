@@ -1,5 +1,15 @@
 .buttonRow {
+  --scrollbar-foreground: hsl(0deg, 0%, 70%);
+  --scrollbar-background: transparent;
+  --scrollbar-padding: 0px;
   overflow-x: auto;
   white-space: nowrap;
   padding-bottom: 4px;
+  max-width: 300px;
+}
+
+@media (min-width: 768px) {
+  .buttonRow {
+    max-width: none;
+  }
 }
